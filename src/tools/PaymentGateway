@@ -1,0 +1,466 @@
+_type: export
+__export_format: 4
+__export_date: 2021-07-23T06:05:35.657Z
+__export_source: insomnia.desktop.app:v2021.4.1
+resources:
+  - _id: req_wrk_76e72e431fde41f385854e4b82c3270ee139f739
+    parentId: wrk_76e72e431fde41f385854e4b82c3270e
+    modified: 1627016743757
+    created: 1627015233602
+    url: "{{ base_url }}/api/Payments"
+    name: /api/Payments
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "ExpiryMonth": 3,
+          "ExpiryYear": 2019,
+          "CardNumber": "4543474002249996",
+          "Cvv": 1236547,  
+          "ClientId": "1",
+          "Amount": 10968,
+          "Currency": "GBP"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d6704a7b365f4556b2cbf3a5ffb7fbaf
+    authentication: {}
+    metaSortKey: -1627015233602
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_76e72e431fde41f385854e4b82c3270e
+    parentId: null
+    modified: 1627015177114
+    created: 1627015177114
+    name: PaymentGateway.yaml
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_wrk_76e72e431fde41f385854e4b82c3270e29a69ee4
+    parentId: wrk_76e72e431fde41f385854e4b82c3270e
+    modified: 1627020277764
+    created: 1627015233594
+    url: "{{ base_url }}/api/Payments/sk_3ba71905-2d6f-47fb-b379-fd7e8674fb6f"
+    name: /api/Payments/{id}
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1627015233594
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_76e72e431fde41f385854e4b82c3270eb486c5a2
+    parentId: wrk_76e72e431fde41f385854e4b82c3270e
+    modified: 1627015233588
+    created: 1627015233588
+    url: "{{ base_url }}/api/Payments/health"
+    name: /api/Payments/health
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1627015233588
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_ade25b9d2a00d4b69d6b25c8fc567076c2ec8797
+    parentId: wrk_76e72e431fde41f385854e4b82c3270e
+    modified: 1627015177555
+    created: 1627015177555
+    name: Base Environment
+    data:
+      base_url: "{{ scheme }}://{{ host }}{{ base_path }}"
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1627015177555
+    _type: environment
+  - _id: jar_ade25b9d2a00d4b69d6b25c8fc567076c2ec8797
+    parentId: wrk_76e72e431fde41f385854e4b82c3270e
+    modified: 1627015177559
+    created: 1627015177559
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_40d2ba9676314831b93c09248b108228
+    parentId: wrk_76e72e431fde41f385854e4b82c3270e
+    modified: 1627020262255
+    created: 1627015177131
+    fileName: PaymentGateway.yaml
+    contents: |-
+      {
+        "openapi": "3.0.1",
+        "info": {
+          "title": "Payment Gateway API",
+          "description": "Process payments and retieve previous payments",
+          "contact": {
+            "name": "Sreejan Kumar",
+            "url": "https://github.com/sreejankumar"
+          },
+          "license": {
+            "name": "License",
+            "url": "https://github.com/sreejankumar/Api.Core/blob/main/LICENSE"
+          },
+          "version": "v1.0.0",    
+        },  
+         "servers": [
+          {
+            "url": "https://localhost:44309/"
+          }
+        ], 
+        "paths": {
+          "/api/Payments": {
+            "post": {
+              "tags": [
+                "PaymentGateway"
+              ],
+              "summary": "Api to post carde details for making payments",
+              "requestBody": {
+                "description": "",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/CardInformation"
+                    }
+                  },
+                  "text/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/CardInformation"
+                    }
+                  },
+                  "application/*+json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/CardInformation"
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "200": {
+                  "description": "Success",
+                  "content": {
+                    "text/plain": {
+                      "schema": {
+                        "$ref": "#/components/schemas/CardInformation"
+                      }
+                    },
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/CardInformation"
+                      }
+                    },
+                    "text/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/CardInformation"
+                      }
+                    }
+                  }
+                },
+                "400": {
+                  "description": "Bad Request",
+                  "content": {
+                    "text/plain": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    },
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    },
+                    "text/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    }
+                  }
+                },
+                "404": {
+                  "description": "Not Found",
+                  "content": {
+                    "text/plain": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    },
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    },
+                    "text/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/api/Payments/{id}": {
+            "get": {
+              "tags": [
+                "PaymentGateway"
+              ],
+              "summary": "retrieve details of a previously made payment.",
+              "parameters": [
+                {
+                  "name": "id",
+                  "in": "path",
+                  "description": "",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "Success",
+                  "content": {
+                    "text/plain": {
+                      "schema": {
+                        "$ref": "#/components/schemas/PaymentRecord"
+                      }
+                    },
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/PaymentRecord"
+                      }
+                    },
+                    "text/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/PaymentRecord"
+                      }
+                    }
+                  }
+                },
+                "400": {
+                  "description": "Bad Request",
+                  "content": {
+                    "text/plain": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    },
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    },
+                    "text/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    }
+                  }
+                },
+                "404": {
+                  "description": "Not Found",
+                  "content": {
+                    "text/plain": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    },
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    },
+                    "text/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ErrorMessage"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "components": {
+          "schemas": {
+            "CardDetails": {
+              "type": "object",
+              "properties": {
+                "cardType": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "expiryMonth": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "expiryYear": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "lastFourCard": {
+                  "type": "string",
+                  "nullable": true
+                }
+              },
+              "additionalProperties": false
+            },
+            "CardInformation": {
+              "required": [
+                "amount",
+                "cardNumber",
+                "clientId",
+                "currency",
+                "cvv",
+                "expiryMonth",
+                "expiryYear"
+              ],
+              "type": "object",
+              "properties": {
+                "cardType": {
+                  "$ref": "#/components/schemas/CardType"
+                },
+                "expiryMonth": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "expiryYear": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "cardNumber": {
+                  "type": "string"
+                },
+                "cvv": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "clientId": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "currency": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "CardType": {
+              "enum": [
+                0,
+                1,
+                2
+              ],
+              "type": "integer",
+              "format": "int32"
+            },
+            "ErrorMessage": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "nullable": true
+                }
+              },
+              "additionalProperties": false
+            },
+            "PaymentRecord": {
+              "type": "object",
+              "properties": {
+                "paymentRecordId": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "card": {
+                  "$ref": "#/components/schemas/CardDetails"
+                },
+                "clientId": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "amount": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "currency": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "status": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "statusCode": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    contentType: yaml
+    _type: api_spec
+  - _id: uts_bed4289b7ca34106a23d6b6286e3afcf
+    parentId: wrk_76e72e431fde41f385854e4b82c3270e
+    modified: 1627016159364
+    created: 1627016159364
+    name: Test Payment Gateway API
+    _type: unit_test_suite
+  - _id: env_env_ade25b9d2a00d4b69d6b25c8fc567076c2ec8797_sub
+    parentId: env_ade25b9d2a00d4b69d6b25c8fc567076c2ec8797
+    modified: 1627016732897
+    created: 1627015233612
+    name: OpenAPI env
+    data:
+      scheme: https
+      base_path: ""
+      host: localhost:44309
+    dataPropertyOrder:
+      "&":
+        - scheme
+        - base_path
+        - host
+    color: null
+    isPrivate: false
+    metaSortKey: 1627015233617
+    _type: environment
+  - _id: ut_3079ddae3d88473cb1a4546a430d2763
+    parentId: uts_bed4289b7ca34106a23d6b6286e3afcf
+    modified: 1627016170711
+    created: 1627016164962
+    requestId: req_wrk_76e72e431fde41f385854e4b82c3270ee139f739
+    name: Returns 200
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    _type: unit_test
