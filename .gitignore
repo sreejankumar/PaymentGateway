@@ -1,0 +1,7 @@
+/src/apps/PaymentGateway.Api/bin/*
+/src/apps/PaymentGateway.Api/obj/Debug/*
+/src/libs/PaymentGateway.Api.Core/bin/*
+/src/apps/PaymentGateway.Api/obj/*
+/src/libs/PaymentGateway.Api.Core/obj/*
+/src/solutions/.vs/PaymentGateway/*
+/src/tests/PaymentGateway.UnitTests/obj/*
